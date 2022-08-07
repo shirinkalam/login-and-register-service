@@ -6,11 +6,12 @@
 
 <div>
     <div>
+        @include('partials.alerts')
         <div>
-            @lang('public.register & login system')
+            {{-- @lang('public.register & login system') --}}
         </div>
         <div>
-            @lang('public.particals laravel')
+            {{-- @lang('public.particals laravel') --}}
         </div>
     </div>
 </div>

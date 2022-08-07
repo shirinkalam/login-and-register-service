@@ -23,5 +23,6 @@ return [
     'recover password' => 'بازیابی رمز عبور',
     'logout' => 'خروج',
     'profile' => 'پروفایل',
-    
+    'your registration was successful'=>'ثبت نام شما با موفقیت انجام شد'
+
 ];

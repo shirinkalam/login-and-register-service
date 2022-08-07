@@ -1,6 +1,13 @@
+@font-face {
+    font-family: yekanbakh;
+    src: url('../fonts/yekanbakh/heavy.ttf');
+  }
+
+
 * {
 	margin: 0;
 	padding: 0;
+    font-family: yekanbakh;
 
 }
 
@@ -88,7 +95,7 @@ ul {
 
 ul li {
 	display: inline-block;
-	width: 84px;
+	width: 90px;
 	text-align: center;
 }
 
@@ -97,6 +104,7 @@ ul li a {
 	width: 100%;
 	line-height: 60px;
 	text-decoration: none;
+    font-size: 13px;
 }
 
 ul li.active {

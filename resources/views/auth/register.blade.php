@@ -14,8 +14,8 @@
         @include('partials.alerts')
     </div>
 
-  <form action="index.html" method="post">
-
+  <form action="{{route('auth.register')}}" method="POST">
+    @csrf
     <h1>Register</h1>
 
     <fieldset>
@@ -27,10 +27,10 @@
         <input value="{{old('email')}}" type="email" id="mail" name="email">
 
         <label for="password">@lang('auth.password'):</label>
-        <input type="password" id="password" name="user_password">
+        <input type="password" id="password" name="password">
 
         <label for="confirm_password">@lang('auth.confirm password'):</label>
-        <input type="password" id="password" name="user_password">
+        <input type="password" id="password" name="password_confirmation">
 
         <label for="phone_number">@lang('auth.phone number'):</label>
         <input type="text" id="phone_number" name="phone_number">
