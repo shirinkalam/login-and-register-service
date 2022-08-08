@@ -16,3 +16,8 @@
 </div>
 @endif
 
+@if (session('wronCredentials'))
+<div class="alert alert-success">
+    @lang('auth.user or password was wrong')
+</div>
+@endif

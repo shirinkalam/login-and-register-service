@@ -17,13 +17,14 @@
 				<div id="navbar">
 					<ul class="nav navbar-nav">
                         @guest
-                        <li><a href="#about">@lang('public.login')</a></li>
+                        <li><a href="{{route('auth.login.form')}}">@lang('public.login')</a></li>
 						<li><a href="{{route('auth.register.form')}}">@lang('public.register')</a></li>
                         <li><a href="#support">@lang('public.home')</a></li>
                         @endguest
 
                         @auth
                         <li><a role="button" aria-haspopup="true" aria-expanded="false" href="index.html">{{Auth::user()->name}}</a></li>
+                        <li><a href="{{route('auth.logout')}}">@lang('auth.logout')</a></li>
                         @endauth
 
 					</ul>

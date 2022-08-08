@@ -41,9 +41,9 @@ return [
     'digits_between' => 'گزینه :attribute باید بین :min و :max عدد باشد',
     'dimensions' => 'ابعاد تصویر گزینه :attribute مجاز نمی باشد',
     'distinct' => 'گزینه :attribute دارای افزونگی داده می باشد',
-    'email' => 'گزینه :attribute باید یک آدرس ایمیل صحیح باشد',
+    'email' => 'گزینه  باید یک آدرس ایمیل صحیح باشد',
     'ends_with' => 'گزینه :attribute باید با یکی از این مقادیر پایان یابد، :values',
-    'exists' => 'گزینه انتخاب شده :attribute صحیح نمی باشد',
+    'exists' => ':attribute داخل سیستم موجود نمیباشد',
     'file' => 'گزینه :attribute باید یک فایل باشد',
     'filled' => 'گزینه :attribute نمی تواند خالی باشد',
     'gt' => [

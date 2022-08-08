@@ -14,8 +14,8 @@
         @include('partials.alerts')
     </div>
 
-  <form action="index.html" method="post">
-
+  <form action="{{route('auth.login')}}" method="POST">
+    @csrf
     <h1>@lang('auth.login')</h1>
 
     <fieldset>
@@ -25,7 +25,7 @@
         <input value="{{old('email')}}" type="email" id="mail" name="email">
 
         <label for="password">@lang('auth.password'):</label>
-        <input type="password" id="password" name="user_password">
+        <input type="password" id="password" name="password">
 
 
     <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">  @lang('auth.remember me')</label><br>
