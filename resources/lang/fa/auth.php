@@ -24,6 +24,7 @@ return [
     'logout' => 'خروج',
     'profile' => 'پروفایل',
     'your registration was successful'=>'ثبت نام شما با موفقیت انجام شد',
-    'auth.user or password was wrong'=> 'نام کاربری و کلمه ی عبور نادرست میباشد'
+    'auth.user or password was wrong'=> 'نام کاربری و کلمه ی عبور نادرست میباشد',
+    'you must verify your email'=> 'ایمیل شما تایید نشده است لطفا برای استفاده از تمامی امکانات سایت ایمیل خود را تایید کنید'
 
 ];

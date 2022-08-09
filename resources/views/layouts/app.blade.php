@@ -10,6 +10,11 @@
 </head>
 <body>
     @include('partials.navbar')
+    @if(session('mostVerifyEmail'))
+        <div class="alert alert-danger">
+            @lang('auth.you must verify your email')
+        </div>
+    @endif
         <div class="container">
             @yield('content')
         </div>
