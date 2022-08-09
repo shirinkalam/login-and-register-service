@@ -10,13 +10,22 @@
 </head>
 <body>
     @include('partials.navbar')
+
     @if(session('mostVerifyEmail'))
         <div class="alert alert-danger">
-            @lang('auth.you must verify your email')
+            @lang('auth.you must verify your email',['link'=>route('auth.email.send.verification')])
         </div>
     @endif
+
+    @if (session('verifationEmailSent'))
+    <div class="alert alert-success">
+        @lang('auth.verification email sent')
+    </div>
+    @endif
+
         <div class="container">
             @yield('content')
         </div>
+        
 </body>
 </html>
