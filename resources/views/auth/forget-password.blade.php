@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title',__('auth.login'))
+@section('title',__('auth.forget password'))
 @section('links')
 <link rel="stylesheet" href="{{asset('css/register-style.css')}}">
 <script src="{{asset('/js/script.js')}}"></script>
@@ -14,22 +14,17 @@
         @include('partials.alerts')
     </div>
 
-  <form action="{{route('auth.login')}}" method="POST">
+  <form action="{{route('auth.password.forget')}}" method="POST">
     @csrf
-    <h1>@lang('auth.login')</h1>
+    <h1>@lang('auth.forget password')</h1>
 
     <fieldset>
-      <legend><span class="number">2</span>@lang('auth.enter your info')</legend>
+      <legend>@lang('auth.enter your info')</legend>
       <fieldset>
+
         <label  for="mail">@lang('auth.email'):</label>
         <input value="{{old('email')}}" type="email" id="mail" name="email">
 
-        <label for="password">@lang('auth.password'):</label>
-        <input type="password" id="password" name="password">
-
-
-    <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">  @lang('auth.remember me')</label><br>
-    <a href="{{route('auth.password.forget.form')}}">@lang('auth.forget your password')</a>
         </fieldset>
     </fieldset>
 
@@ -37,7 +32,7 @@
         @include('partials.validations-errors')
     </div>
 
-    <button type="submit">@lang('auth.sign in')</button>
+    <button type="submit">@lang('auth.recover password')</button>
   </form>
 
 </body>

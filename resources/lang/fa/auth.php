@@ -20,7 +20,7 @@ return [
     'register' => 'ثبت نام',
     'remember me' => 'مرا به خاطر بسپار',
     'forget your password' => 'رمز عبور را فراموش کرده ایید؟',
-    'recover password' => 'بازیابی رمز عبور',
+    'recover password' => 'ارسال لینک بازیابی',
     'logout' => 'خروج',
     'profile' => 'پروفایل',
     'your registration was successful'=>'ثبت نام شما با موفقیت انجام شد',
@@ -32,4 +32,7 @@ return [
     ',
     'verification email sent'=> 'ایمیل تاییدیه با موفقیت ارسال شد',
     'email has verified'=>'ایمیل شما با موفقیت تایید شد',
+    'forget password' => 'فراموشی رمز عبور',
+    'reset link sent' => 'ایمیل تغییر رمز عبور با موفقیت ارسال شد',
+    'reset link failed' => 'مشکلی در هنگام ایمیل بازیابی پیش آمده لطفا بعدا تلاش نمایید',
 ];

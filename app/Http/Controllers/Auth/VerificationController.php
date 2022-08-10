@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class VerificationController extends Controller
 {
@@ -34,6 +35,11 @@ class VerificationController extends Controller
 
     public function verify(Request $request)
     {
+
+        if($request->user()->email !== $request->query('email')){
+            throw new AuthorizationException;
+        }
+
         #check email status
         if($request->user()->hasVerifiedEmail()){
             return redirect()->route('home');
