@@ -31,5 +31,5 @@ return [
     کلیک کنید
     ',
     'verification email sent'=> 'ایمیل تاییدیه با موفقیت ارسال شد',
-
+    'email has verified'=>'ایمیل شما با موفقیت تایید شد',
 ];

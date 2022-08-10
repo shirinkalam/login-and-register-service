@@ -4,7 +4,7 @@
 Dear {{$name}}
 
 @component('mail::button', ['url' => $link])
-Verify Your Emil
+Verify Your Email
 @endcomponent
 
 Thanks,<br>

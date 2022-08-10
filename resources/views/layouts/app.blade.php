@@ -11,7 +11,7 @@
 <body>
     @include('partials.navbar')
 
-    @if(session('mostVerifyEmail'))
+    @if(session('mustVerifyEmail'))
         <div class="alert alert-danger">
             @lang('auth.you must verify your email',['link'=>route('auth.email.send.verification')])
         </div>
@@ -26,6 +26,6 @@
         <div class="container">
             @yield('content')
         </div>
-        
+
 </body>
 </html>
