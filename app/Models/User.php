@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Jobs\SendEmail;
 use App\Mail\ResetPassword;
 use App\Mail\VerificationEmail;
+use App\Services\Auth\Traits\MagicallyAthenticable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -15,7 +16,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable ,MagicallyAthenticable;
 
     /**
      * The attributes that are mass assignable.

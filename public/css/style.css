@@ -27,6 +27,10 @@ body {
     text-align: center;
 }
 
+form{
+    position: relative;
+}
+
 .alert-success{
     width: 100%;
     background-color: rgb(121, 238, 156);
@@ -130,6 +134,40 @@ p {
 	text-align: center;
 	color: #777;
 }
+
+.google-btn{
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    background-color: #b1b1b1;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid #5a5a5a;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-bottom: 100px;
+    text-decoration: none;
+}
+.magic-btN{
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    background-color: #b1b1b1;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 45%;
+    border: 1px solid #5a5a5a;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-top: 11px ;
+    text-decoration: none;
+    position: absolute;
+    left: 20px;
+}
+
 /** Start Coding Here **/
 
 /**

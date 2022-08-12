@@ -42,8 +42,15 @@
         @include('partials.validations-errors')
     </div>
 
-    <button type="submit">@lang('auth.sign in')</button>
-    <a href="{{route('auth.login.provider.redirect','google')}}" class="">@lang('auth.login with google')</a>
+    <div>
+        <a class="magic-btn" href="{{route('auth.magic.login.form')}}">
+            <small>@lang('auth.login with magic link')</small>
+        </a>
+    </div><br>
+
+    <a class="google-btn" href="{{route('auth.login.provider.redirect','google')}}" class="">@lang('auth.login with google')</a><br>
+    <br><button type="submit">@lang('auth.sign in')</button><br>
+
   </form>
 
 </body>

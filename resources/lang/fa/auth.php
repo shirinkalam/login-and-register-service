@@ -39,4 +39,8 @@ return [
     'cant change password' => 'مشکلی در هنگام تغییر کلمه ی عبور پیش آمده است',
     'password changed' => 'رمز عبور با موفقیت تغییر یافت',
     'login with google' => 'ورود با گوگل',
+    'magic password'=>'ورود بدون رمز عبور',
+    'send login link'=>'ارسال لینک ورود',
+    'login with magic link'=>'ورود بدون رمز عبور
+    '
 ];
