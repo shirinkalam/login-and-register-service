@@ -40,4 +40,5 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
     Route::get('{prvider}/callback',[SocialController::class,'providerCallback'])->name('auth.login.provider.callback');
     Route::get('magic/login',[MagicController::class,'showMagicForm'])->name('auth.magic.login.form');
     Route::post('magic/login',[MagicController::class,'sendToken'])->name('auth.magic.send.token');
+    Route::get('magic/login/{token}',[MagicController::class,'login'])->name('auth.magic.login');
 });

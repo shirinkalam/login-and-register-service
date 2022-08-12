@@ -17,7 +17,11 @@ class MagicAuthentication
     {
         $user = $this->getUser();
         #generate LINK
-        $user->createTokenn();
+        $token = $user->createTokenn()->send([
+            'remember' =>$this->request->has('remember'),
+            'email' => $user->email,
+        ]);
+
         #send LINK;
     }
 

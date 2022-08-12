@@ -24,7 +24,7 @@
         <label  for="mail">@lang('auth.email'):</label>
         <input value="{{old('email')}}" type="email" id="mail" name="email">
 
-        <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">  @lang('auth.remember me')</label>
+        <input type="checkbox" id="development" value="interest_development" name="remember"><label class="light" for="development">  @lang('auth.remember me')</label>
         </fieldset>
     </fieldset>
 

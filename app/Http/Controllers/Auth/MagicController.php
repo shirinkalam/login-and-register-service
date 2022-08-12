@@ -19,7 +19,7 @@ class MagicController extends Controller
         #generate token
         $auth->requestLink();
         #send token
-
+        return back()->with('magicLinkSent',true);
         #redirect
     }
 
