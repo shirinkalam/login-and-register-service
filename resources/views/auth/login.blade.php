@@ -6,6 +6,7 @@
 <script src="{{asset('/js/script.js')}}"></script>
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/main.css">
+<script src="https://www.google.com/recaptcha/api.js?hl=fa" async defer></script>
 @section('content')
 
 <body>
@@ -19,7 +20,7 @@
     <h1>@lang('auth.login')</h1>
 
     <fieldset>
-      <legend><span class="number">2</span>@lang('auth.enter your info')</legend>
+      <legend>@lang('auth.enter your info')</legend>
       <fieldset>
         <label  for="mail">@lang('auth.email'):</label>
         <input value="{{old('email')}}" type="email" id="mail" name="email">
@@ -30,14 +31,19 @@
 
     <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">  @lang('auth.remember me')</label><br>
     <a href="{{route('auth.password.forget.form')}}">@lang('auth.forget your password')</a>
+
+    @include('partials.recaptcha')
+
         </fieldset>
     </fieldset>
+
 
     <div class="">
         @include('partials.validations-errors')
     </div>
 
     <button type="submit">@lang('auth.sign in')</button>
+    <a href="{{route('auth.login.provider.redirect','google')}}" class="">@lang('auth.login with google')</a>
   </form>
 
 </body>

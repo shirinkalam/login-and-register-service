@@ -38,4 +38,5 @@ return [
     'reset your password'=>'تغییر رمز عبور',
     'cant change password' => 'مشکلی در هنگام تغییر کلمه ی عبور پیش آمده است',
     'password changed' => 'رمز عبور با موفقیت تغییر یافت',
+    'login with google' => 'ورود با گوگل',
 ];
