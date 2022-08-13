@@ -23,8 +23,9 @@
                         @endguest
 
                         @auth
-                        <li><a role="button" aria-haspopup="true" aria-expanded="false" href="index.html">{{Auth::user()->name}}</a></li>
-                        <li><a href="{{route('auth.logout')}}">@lang('auth.logout')</a></li>
+                        <li><a class="user-name" role="button" aria-haspopup="true" aria-expanded="false" href="index.html">{{Auth::user()->name}}</a></li>
+                        <li><a href="{{route('auth.two.factor.toggle.form')}}">@lang('auth.two factor authentication')</a></li>
+                        <li><a class="logout-btn" href="{{route('auth.logout')}}">@lang('auth.logout')</a></li>
                         @endauth
 
 					</ul>

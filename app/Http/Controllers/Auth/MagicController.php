@@ -36,7 +36,7 @@ class MagicController extends Controller
 
     public function login(LoginToken $token)
     {
-        $this->auth->authenticate($token) === $this->auth::AUTHENTICATED
+        $this->auth->authenticate($token) == $this->auth::AUTHENTICATED
         ? redirect()->route('home')
         : redirect()->route('auth.magic.login.form')->with('invalidToken',true);
     }
