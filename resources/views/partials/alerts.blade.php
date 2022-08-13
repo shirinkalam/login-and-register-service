@@ -57,3 +57,9 @@
     @lang('auth.magic link sent')
 </div>
 @endif
+
+@if (session('invalidToken'))
+<div class="alert alert-danger">
+    @lang('auth.invalid token')
+</div>
+@endif

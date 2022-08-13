@@ -42,5 +42,6 @@ return [
     'magic password'=>'ورود بدون رمز عبور',
     'send login link'=>'ارسال لینک ورود',
     'login with magic link'=>'ورود بدون رمز عبور',
-    'magic link sent'=>'لینک ورود با موفقیت ارسال شد'
+    'magic link sent'=>'لینک ورود با موفقیت ارسال شد',
+    'invalid token'=>'لینک ورود معتبر نمیباشد'
 ];
