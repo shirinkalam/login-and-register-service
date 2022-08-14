@@ -23,7 +23,7 @@
         <div>
 
         </div>
-        <form action="" method="">
+        <form action="{{route('auth.login.code')}}" method="POST">
             <div>
                 <small>
                     @lang('auth.two factor code sent')
@@ -32,7 +32,7 @@
             <div>
                 <input type="text" name="code" placeholder="کد را وارد نمایید ...">
             </div>
-            <a class="not-give-dode" href="">@lang('auth.not give code')</a><br>
+            <a class="not-give-dode" href="{{route('auth.two.factor.resent')}}">@lang('auth.not give code')</a><br>
             <br><a href="" class="confirm-btn">@lang('auth.confirm')</a>
         </form>
     </div>

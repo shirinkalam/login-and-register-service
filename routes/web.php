@@ -48,6 +48,6 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
     Route::post('two-factor/code',[TwoFactorController::class,'confirmCode'])->name('auth.two.factor.code');
     Route::get('two-factor/deactivate',[TwoFactorController::class,'deactivate'])->name('auth.two.factor.deactivate');
     Route::get('login/code',[LoginController::class,'showCodeForm'])->name('auth.login.code.form');
-
-
+    Route::post('login/code',[LoginController::class,'confirmCode'])->name('auth.login.code');
+    Route::get('two-factor/resent',[TwoFactorController::class,'resent'])->name('auth.two.factor.resent');
 });

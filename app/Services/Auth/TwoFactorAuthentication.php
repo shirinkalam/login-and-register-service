@@ -4,12 +4,14 @@ namespace App\Services\Auth;
 use App\Models\TwoFactor;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TwoFactorAuthentication
 {
     const CODE_SENT ='code.sent';
     const INVALID_CODE ='code.invalid';
     const ACTIVATED ='code.activated';
+    const AUTHENTICATED= 'code.authenticated';
 
     protected $request;
     protected $code;
@@ -24,7 +26,7 @@ class TwoFactorAuthentication
     {
         #generate code
         $code = TwoFactor::generateCodeFor($user);
-        #set code in session
+        #set code in m
         $this->setSession($code);
         #send code
         $code->send();
@@ -38,6 +40,7 @@ class TwoFactorAuthentication
         session([
             'code_id'=>$code->id,
             'user_id'=>$code->userid,
+            'remember' =>$this->request->remember,
         ]);
     }
 
@@ -63,7 +66,7 @@ class TwoFactorAuthentication
 
     protected function forgetSession()
     {
-        session(['user_id','code_id']);
+        session(['user_id','code_id','remember']);
     }
 
     protected function getToken()
@@ -79,5 +82,24 @@ class TwoFactorAuthentication
     public function deactivate(User $user)
     {
         return $user->deactivateTwoFactor();
+    }
+
+    public function login()
+    {
+        #validate code
+        if(!$this->isValidCode()) return static::INVALID_CODE;
+        #delete code record
+        $this->getToken()->delete();
+        #login user
+        Auth::login($this->getUser(),session('remember'));
+
+        $this->forgetSession();
+
+        return static::AUTHENTICATED;
+    }
+
+    public function resent()
+    {
+        return $this->requestCode($this->getUser);
     }
 }

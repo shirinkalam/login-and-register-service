@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Code;
 use App\Models\User;
 use App\Services\Auth\TwoFactorAuthentication;
 use Illuminate\Http\Request;
@@ -52,6 +53,14 @@ class LoginController extends Controller
         Auth::login($user,$request->remember);
         #redirect
         return $this->sendSuccessResponse();
+    }
+
+    public function confirmCode(Code $request)
+    {
+        $response = $this->twoFactor->login();
+        return $response == $this->twoFactor::AUTHENTICATED
+        ? $this->sendSuccessResponse()
+        : back()->with('invalidCode',true);
     }
 
     protected function validateForm(Request $request)
