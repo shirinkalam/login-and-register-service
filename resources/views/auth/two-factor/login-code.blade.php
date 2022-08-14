@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('title',__('auth.login'))
@@ -16,27 +18,23 @@
     </div>
     <div class="container-two-factor">
         <div>
+            <h2>@lang('auth.two factor authentication')</h2>
+        </div>
+        <div>
 
         </div>
-        @if (Auth::user()->hasTwoFactor())
-        <div>
+        <form action="" method="">
             <div>
                 <small>
-                    @lang('auth.two factor is active',['number'=>Auth::user()->phone_number])
+                    @lang('auth.two factor code sent')
                 </small>
             </div>
-            <a href="{{route('auth.two.factor.deactivate')}}" class="active-btn">@lang('auth.deactivate')</a>
-        </div>
-        @else
-        <div>
             <div>
-                <small>
-                    @lang('auth.two factor is inactive',['number'=>Auth::user()->phone_number])
-                </small>
+                <input type="text" name="code" placeholder="کد را وارد نمایید ...">
             </div>
-            <a href="{{route('auth.two.factor.activate')}}" class="active-btn">@lang('auth.activate')</a>
-        </div>
-        @endif
+            <a class="not-give-dode" href="">@lang('auth.not give code')</a><br>
+            <br><a href="" class="confirm-btn">@lang('auth.confirm')</a>
+        </form>
     </div>
 </body>
 </html>

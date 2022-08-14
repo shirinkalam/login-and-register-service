@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Services\Auth\TwoFactorAuthentication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,14 +13,22 @@ class LoginController extends Controller
 
     protected $redirectTo ='/home';
 
-    public function __construct()
+    protected $twoFactor;
+
+    public function __construct(TwoFactorAuthentication $twoFactor)
     {
         $this->middleware('guest')->except('logout');
+        $this->twoFactor = $twoFactor ;
     }
 
     public function showLoginForm()
     {
         return view('auth.login');
+    }
+
+    public function showCodeForm()
+    {
+        return view('auth.two-factor.login-code');
     }
 
     public function login(Request $request)
@@ -28,15 +38,20 @@ class LoginController extends Controller
         $this->validateForm($request);
 
         #check user and password
-        #login
-        #refirect {FALSE}
-        if($this->attempLogin($request)){
-            return $this->sendSuccessResponse();
+        if(!$this->isValidCredentials($request)){
+            return $this->sendLoginFaildResponse();
         }
 
-        #refirect {TRUE}
-        $this->sendLoginFaildResponse();
+        $user = $this->getUser($request);
 
+        if($user->hasTwoFactor()){
+            $this->twoFactor->requestCode($user);
+            return $this->sendHasTwoFactorResponse();
+        }
+        #login
+        Auth::login($user,$request->remember);
+        #redirect
+        return $this->sendSuccessResponse();
     }
 
     protected function validateForm(Request $request)
@@ -47,12 +62,16 @@ class LoginController extends Controller
         ]);
     }
 
-    protected function attempLogin(Request $request)
+    protected function sendHasTwoFactorResponse()
     {
-        #check user and password
-        #login
-        return Auth::attempt($request->only('email','password'),$request->filled('remember'));
+        return redirect()->route('auth.login.code.form');
     }
+
+    protected function isValidCredentials($request)
+    {
+        return Auth::validate($request->only(['email','password']));
+    }
+
 
     protected function sendSuccessResponse()
     {
@@ -63,6 +82,11 @@ class LoginController extends Controller
     protected function sendLoginFaildResponse()
     {
         return back()->with('wronCredentials',true);
+    }
+
+    protected function getUser($request)
+    {
+        return User::where('email',$request->email)->firstOrFail();
     }
 
     public function logout()
