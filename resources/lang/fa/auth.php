@@ -56,5 +56,9 @@ return [
     'not give code'=>'کد را دریافت نکرده اید؟',
     'invalid code'=>'کد نامعتبر میباشد',
     'two factor acticvated'=>'احراز هویت دو مرحله ایی برای شما فعال شد',
-    'invalid code'=>'کد اشتباه است'
+    'invalid code'=>'کد اشتباه است',
+    'two factor is active'=>'حراز هویت دو مرحله ای برای شما برروی شماره تلفن :number فعال میباشد جهت غیر فعال کردن آن بر روی دکمه ی زیر کلیک کنید',
+    'activate'=>'فعال سازی',
+    'deactivate' =>'غیر فعال سازی',
+    'twoFactorDeactivated'=>'احراز هویت دو عاملی غیر فعال شد'
 ];

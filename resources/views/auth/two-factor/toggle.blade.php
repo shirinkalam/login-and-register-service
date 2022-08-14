@@ -18,14 +18,25 @@
         <div>
 
         </div>
+        @if (Auth::user()->hasTwoFactor())
+        <div>
+            <div>
+                <small>
+                    @lang('auth.two factor is active',['number'=>Auth::user()->phone_number])
+                </small>
+            </div>
+            <a href="{{route('auth.two.factor.deactivate')}}" class="active-btn">@lang('auth.deactivate')</a>
+        </div>
+        @else
         <div>
             <div>
                 <small>
                     @lang('auth.two factor is inactive',['number'=>Auth::user()->phone_number])
                 </small>
             </div>
-            <a href="{{route('auth.two.factor.activate')}}" class="active-btn">فعال سازی</a>
+            <a href="{{route('auth.two.factor.activate')}}" class="active-btn">@lang('auth.activate')</a>
         </div>
+        @endif
     </div>
 </body>
 </html>
