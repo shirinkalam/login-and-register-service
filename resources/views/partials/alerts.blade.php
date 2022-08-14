@@ -63,3 +63,21 @@
     @lang('auth.invalid token')
 </div>
 @endif
+
+@if (session('cantSentCode'))
+<div class="alert alert-danger">
+    @lang('auth.cant sent code')
+</div>
+@endif
+
+@if (session('invalidCode'))
+<div class="alert alert-danger">
+    @lang('auth.invalid code')
+</div>
+@endif
+
+@if (session('twoFactorActivated'))
+<div class="alert alert-success">
+    @lang('auth.two factor acticvated')
+</div>
+@endif

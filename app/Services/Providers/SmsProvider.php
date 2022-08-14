@@ -22,6 +22,7 @@ class SmsProvider implements Provider
 
     public function send()
     {
+        #check have phone number
         $this->havePhoneNumber();
 
         $client = new Client();

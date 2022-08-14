@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class TwoFactorController extends Controller
 {
+    protected $twoFactor;
 
-    public function __construct()
+    public function __construct(TwoFactorAuthentication $twoFactor)
     {
         $this->middleware('auth');
+        $this->twoFactor = $twoFactor ;
     }
 
     public function showToggleForm()
@@ -20,9 +22,38 @@ class TwoFactorController extends Controller
         return view('auth.two-factor.toggle');
     }
 
-    public function activate(TwoFactorAuthentication $twoFactor)
+    public function showEnterCodeForm()
     {
-        $response = $twoFactor->requestCode(Auth::user());
-        dd($response);
+        return view('auth.two-factor.enter-code');
+    }
+
+    public function activate()
+    {
+        $response = $this->twoFactor->requestCode(Auth::user());
+
+        return $response == $this->twoFactor::CODE_SENT
+        ? redirect()->route('auth.two.factor.code.form')
+        : back()->with('cantSentCode',true);
+    }
+
+    public function confirmCode(Request $request)
+    {
+        #validate CODE
+        $this->validateForm($request);
+        $response = $this->twoFactor->activate();
+
+        return $request == $this->twoFactor::ACTIVATED
+        ? redirect()->route('home')->with('twoFactorActivated',true)
+        : back()->with('invalidCode',true);
+    }
+
+    protected function validateForm(Request $request)
+    {
+        $request->validate([
+            'code'=>['required','numeric','digits:4']
+        ],
+        [
+            'code.digits'=>__('auth.invalid code'),
+        ]);
     }
 }
